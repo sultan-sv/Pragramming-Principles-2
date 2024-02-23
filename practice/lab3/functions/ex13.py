@@ -11,5 +11,5 @@ def ran(x,a,counter):
 x = random.randint(1,20)
 name = input('Hello! What is your name?')
 a = int(input('Well, '+name+', I am thinking of a number between 1 and 20.Take a guess.'))
-print('Good job, '+name+'! You guessed my number in '+str(ran(x,a,0))+' guesses!')
+print('Good job, '+name+'! You guessed my number in '+str(ran(x,a,1))+' guesses!')
    
