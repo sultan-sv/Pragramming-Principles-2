@@ -11,7 +11,7 @@ def test(string):
 string = input()
 print(test(string))
             
-
+ 
 
 
 
