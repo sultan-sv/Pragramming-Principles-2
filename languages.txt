@@ -1,8 +1,0 @@
-python
-java
-c++
-rust
-go
-ruby
-fortran
-basic

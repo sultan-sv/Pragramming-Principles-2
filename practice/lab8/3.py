@@ -37,7 +37,7 @@ def step(screen, x, y, origin_color, fill_color):
     queue.append((x, y))
     screen.set_at((x, y), fill_color)
 
-pencil = pygame.image.load(r'images/pencil.png')
+pencil = pygame.image.load(r'c:\Users\User\Desktop\Pragramming Principles 2\practice\lab8\images\pencil.png')
 pencil = pygame.transform.scale(pencil, (75, 75))
 rect = pencil.get_rect()
 rect1 = rect.move(10, 10)
@@ -45,22 +45,22 @@ rect2 = rect.move(95, 10)
 rect3 = rect.move(180, 10)
 rect4 = rect.move(265, 10)
 
-bucket = pygame.image.load(r'images/bucket.png')
+bucket = pygame.image.load(r'c:\Users\User\Desktop\Pragramming Principles 2\practice\lab8\images/bucket.png')
 bucket = pygame.transform.scale(bucket, (75, 75))
 
-eraser = pygame.image.load(r'images/eraser.png')
+eraser = pygame.image.load(r'c:\Users\User\Desktop\Pragramming Principles 2\practice\lab8\images/eraser.png')
 eraser = pygame.transform.scale(eraser, (75, 75))
 
-figures = pygame.image.load(r'images/figures.png')
+figures = pygame.image.load(r'c:\Users\User\Desktop\Pragramming Principles 2\practice\lab8\images/figures.png')
 figures = pygame.transform.scale(figures, (75, 75))
 
-rectangle = pygame.image.load(r'images/rectangle.png')
+rectangle = pygame.image.load(r'c:\Users\User\Desktop\Pragramming Principles 2\practice\lab8\images/rectangle.png')
 rectangle = pygame.transform.scale(rectangle, (75, 95))
 
-circle = pygame.image.load(r'images/circle.png')
+circle = pygame.image.load(r'c:\Users\User\Desktop\Pragramming Principles 2\practice\lab8\images/circle.png')
 circle = pygame.transform.scale(circle, (75, 75))
 
-pallete = pygame.image.load(r'images/palette.png')
+pallete = pygame.image.load(r'c:\Users\User\Desktop\Pragramming Principles 2\practice\lab8\images/palette.png')
 pallete = pygame.transform.scale(pallete, (75, 75))
 
 BLACK = (0, 0, 0)
@@ -90,7 +90,7 @@ while True:
     panel.fill(DARK_GRAY)
     if poligons:
         panel.blit(rectangle, (10, 10))
-        panel.blit(circle, (95, 10))
+        panel.blit(circle, (90, 10))
         if tool == 1:
             pygame.draw.rect(panel, BLUE, rect1, 1)
         if tool == 4:
@@ -185,8 +185,6 @@ while True:
                     y2 = pos[1] - 100
                     pygame.draw.rect(screen, BLACK, (x2-25, y2-25, 50, 50), border_radius=10)
         
-   
-
     window.blit(panel, (0, 0))
     window.blit(screen, (0, 100))
     pygame.display.update()

@@ -91,7 +91,7 @@ while 1:
          exit()
     if pygame.sprite.collide_rect(P,C):
         C.kill()
-        score = score + 1
+        score = score + random.randint(1,4)
         C = coin()
         sprites.add(C)
     for i in speed:

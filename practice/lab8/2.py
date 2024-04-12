@@ -17,7 +17,7 @@ class Snake(pygame.sprite.Sprite):
         self.image = pygame.Surface((snake_block, snake_block))
         self.image.fill('white')
         self.rect = self.image.get_rect(center=(random.choice(x) + 20, random.choice(x) + 20))
-        self.tupl = (speed, 0)
+        self.tupl = (-speed, 0)
         self.body_segments = [self.rect.copy()]
 
     def move(self, key_event):
@@ -39,7 +39,8 @@ class Snake(pygame.sprite.Sprite):
             if len(self.body_segments) > 1:
                 self.body_segments.pop()
     def resize(self):
-        self.body_segments.append(self.body_segments[-1])
+        for i in range(random.randint(1,3)):
+            self.body_segments.append(self.body_segments[-1])
 
     def draw_body(self, surface):
         for segment in self.body_segments:
@@ -66,8 +67,9 @@ P = Snake()
 A = Apple()
 apple_group = pygame.sprite.Group(A)
 snake_group = pygame.sprite.Group(P)
-
+collided = False
 run = True
+seconds = 0
 while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -78,15 +80,24 @@ while run:
             P.move(event)
 
     sc.fill('black')
-
     if pygame.sprite.spritecollide(P, apple_group, True):
         A = Apple()
         apple_group.add(A)
         P.resize()
+        collided = True
+        seconds = 0
     apple_group.draw(sc)
     P.draw_body(sc)
     snake_group.draw(sc)
-
+    seconds += 1/fps
+    if collided:
+        if seconds > 10:
+            A.kill()
+            if seconds > 13:
+                collided = False
+                A = Apple()
+                apple_group.add(A)
+                seconds = 0
     P.bound()
     snake_group.update()
 
