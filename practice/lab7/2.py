@@ -5,7 +5,7 @@ songs = [file for file in os.listdir(path) if file.endswith('.mp3')]
 index = 0
 pygame.init()
 sc = pygame.display.set_mode((640,640))
-player = pygame.image.load("player.jpg")
+player = pygame.image.load("practice/lab7/player.jpg")
 pygame.mixer.music.load(os.path.join(path,songs[index]))
 print(songs[index])
 pygame.mixer.music.play()

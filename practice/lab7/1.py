@@ -5,13 +5,13 @@ pygame.init()
 
 window = pygame.display.set_mode((500, 500))
 
-left = pygame.image.load('left.jpg')
+left = pygame.image.load('practice/lab7/left.jpg')
 left = pygame.transform.scale(left, (300, 300))
 
-right = pygame.image.load('right.jpg')
+right = pygame.image.load('practice/lab7/right.jpg')
 right = pygame.transform.scale(right, (200, 200))
 
-mickie = pygame.image.load('mickie.jpg')
+mickie = pygame.image.load('practice/lab7/mickie.jpg')
 
 left_rect = left.get_rect()
 center_l = left_rect.center
