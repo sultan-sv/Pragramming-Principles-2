@@ -100,7 +100,7 @@ while 1:
     #checking for colliding coin with player car
     if pygame.sprite.collide_rect(P,C):
         C.kill()
-        x = random.randint(1,4)
+        x = random.randint(1,5)
         score = score + x
         counter += x
         C = coin()

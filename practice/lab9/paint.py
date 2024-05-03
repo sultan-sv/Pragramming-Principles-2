@@ -27,7 +27,7 @@ def getRectangle(x1, y1, x2, y2):
 def getSquare(x1, y1, x2, y2):
     w = abs(x1-x2)
     h = abs(y1-y2)
-    w = min(w, h)
+    w = max(w, h)
     if x1 < x2:
         x = x1
     else:
@@ -279,7 +279,7 @@ while True:
                             pygame.draw.polygon(screen, COLOR, [[x1, y2], [(x1+x2)/2, y1], [x2, y2]], 2)
                         elif tool == 7:
                             pygame.draw.polygon(screen, COLOR, [[x1, y1], 
-                                                                [(x1+x2)/2, y1 - abs(x2-x1)*0.87], 
+                                                                [(x1+x2)/2, y1 - abs(x2-x1)], 
                                                                 [x2, y1]], 2)
                         elif tool == 8:
                             pygame.draw.polygon(screen, COLOR, [[x1, (y1+y2)/2], 

@@ -6,20 +6,20 @@ import time
 pygame.init()
 
 # Set up variables
-fps = 10
+fps = 8
 width = 800
 height = 800
 snake_block = 40
 speed = 40
 clock = pygame.time.Clock()
+text_font2 = pygame.font.SysFont('arial',90)
 x = [i for i in range(761) if i % 40 == 0]
 sc = pygame.display.set_mode((width, height))
 level = 0
 text_font = pygame.font.SysFont('arial', 20)
 level_font = pygame.font.SysFont('arial', 20)
 score = 0
-lib = {0: "black", 1: "yellow", 2: "cyan", 3: 'green', 4: 'violet', 5: 'blue'}
-
+lib = {0: "black", 1: "yellow", 2: "cyan", 3: "green", 4: "violet", 5: "blue", 6: "brown", 7: "magenta", 8:(232,45,75), 9: "orange", 10: "pink", 11: "turquoise", 12: "lavender", 13: "maroon", 14: "olive", 15: "peach", 16: "gold", 17: "silver", 18: "navy", 19: "indigo", 20: "teal"}
 # Snake class
 class Snake(pygame.sprite.Sprite):
     def __init__(self):
@@ -47,9 +47,14 @@ class Snake(pygame.sprite.Sprite):
         
         # Check for collision with itself
         if self.rect.collidelist(self.body_segments[1:]) != -1:
-            pygame.quit()
+            time.sleep(1)
+            sc.fill('red')
+            text2 = text_font2.render('game over',True,'black')
+            sc.blit(text2,(width//2-180,height//2-45))
+            pygame.display.update()
+            time.sleep(2)
             exit()
-        
+    
         # Insert new head position
         self.body_segments.insert(0, self.rect.copy())
         
@@ -59,9 +64,7 @@ class Snake(pygame.sprite.Sprite):
 
     def resize(self):
         # Increase snake length randomly
-        y = random.randint(1, 3)
-        for i in range(y):
-            self.body_segments.append(self.body_segments[-1])
+        self.body_segments.append(self.body_segments[-1])
 
     def draw_body(self, surface):
         # Draw each body segment
@@ -121,6 +124,8 @@ while run:
         seconds = 0
         score = len(P.body_segments)
         level = score // 5
+        #increasing speed
+        fps = 8 + level*2
     
     # Draw apple, snake, and display score and level
     apple_group.draw(sc)
